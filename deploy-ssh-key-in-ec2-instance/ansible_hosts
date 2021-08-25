@@ -1,0 +1,6 @@
+[new_nodes]
+52.90.83.131 ansible_ssh_port=22 ansible_user=ubuntu
+3.86.34.14 ansible_ssh_port=22 ansible_user=ubuntu
+
+[new_nodes:vars]
+ansible_ssh_common_args="-o StrictHostKeyChecking=no"

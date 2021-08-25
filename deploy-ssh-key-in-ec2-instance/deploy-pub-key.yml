@@ -1,0 +1,14 @@
+---
+- name: "Add SSH Public Key into New EC2 Instance"
+  hosts: new-nodes
+  vars:
+    - status : "present"
+    - key : "~/.ssh/id_rsa.pub"
+
+  tasks:
+
+  - name: "Copy the pubic key into authorizedkey file"
+    authorized_key:
+      user: "{{ansible_user}}"
+      state: "{{status}}"
+      key: "{{ lookup('file', '{{ key }}')}}"
